@@ -7,12 +7,14 @@
 {% block body %}
 <div class="content">
 <h1 style="text-align: center">Prediction</h1>
+<h2 style="text-align: center">Staging</h2>
+
 
 <table>
     <tr>
         <th>Status</th>
         <td>
-          {% if api_response|length > 1 %}
+          {% if api_response %}
             <p>{{api_status}}</p>
           {% endif %}
 
@@ -21,25 +23,8 @@
     <tr>
       <th>Response</th>
       <td>
-        {% if api_response|length > 1 %}
+        {% if api_response %}
           <p>{{api_response}}</p>
-        {% endif %}
-      </td>
-    </tr>
-    <tr>
-      <th>Age</th>
-      <td>
-        {% if api_response|length > 1 %}
-          <p>{{data["Age"]}}</p>
-        {% endif %}
-      </td>
-    </tr>
-
-    <tr>
-      <th>Prediction</th>
-      <td>
-        {% if api_response|length > 1 %}
-          <p>{{prediction}}</p>
         {% endif %}
       </td>
     </tr>
