@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Machine Learning Pipeline</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+<h1 style="text-align: center">Prediction</h1>
+
+<table>
+    <tr>
+        <th>Status</th>
+        <td>
+          {% if api_response|length > 1 %}
+            <p>{{api_status}}</p>
+          {% endif %}
+
+        </td>
+    </tr>
+    <tr>
+      <th>Response</th>
+      <td>
+        {% if api_response|length > 1 %}
+          <p>{{api_response}}</p>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>
+        {% if api_response|length > 1 %}
+          <p>{{data["Age"]}}</p>
+        {% endif %}
+      </td>
+    </tr>
+
+    <tr>
+      <th>Prediction</th>
+      <td>
+        {% if api_response|length > 1 %}
+          <p>{{prediction}}</p>
+        {% endif %}
+      </td>
+    </tr>
+
+</table>
+</div>
+
+<center>
+    <a href="/">Back</a>
+</center>
+
+{% endblock %}
