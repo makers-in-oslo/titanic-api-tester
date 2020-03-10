@@ -70,7 +70,7 @@ def staging_api():
         data_to_api = json.dumps(data)
 
         #try:
-        send_request_deployed = requests.post(titanic_staging_app_url, data_to_api)
+        send_request_deployed = requests.post(titanic_staging_app_url)
         print(send_request_deployed)
         api_response = str(send_request_deployed.json())
         #print(len(api_response))
