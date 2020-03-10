@@ -72,7 +72,7 @@ def staging_api():
         #try:
         send_request_deployed = requests.post(titanic_staging_app_url)
         print(send_request_deployed)
-        api_response = str(send_request_deployed.json()) + str(1)
+        api_response = str(send_request_deployed.json())
         #print(len(api_response))
         print("API response")
         print(send_request_deployed.json())
