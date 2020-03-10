@@ -100,10 +100,6 @@ def staging_api():
 
         return render_template('staging.html', api_status=send_request_deployed, api_response=api_response, data=data)
         
-@app.route('/feature_engineering/')
-def feature_engineering():
-    print('Hei')
-    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
