@@ -98,7 +98,7 @@ def staging_api():
         print("API response")
         print(send_request_deployed.json())
 
-        return render_template('production.html', api_status=send_request_deployed, api_response=api_response, data=data)
+        return render_template('staging.html', api_status=send_request_deployed, api_response=api_response, data=data)
         
 @app.route('/feature_engineering/')
 def feature_engineering():
