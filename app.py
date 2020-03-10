@@ -35,53 +35,71 @@ def index():
 def production_api():
     if request.method == 'POST':
         
+        headers = {
+        'Content-Type': 'application/json'
+        }
+
         # sample data
-        data = {'Pclass': 3
-              , 'Age': 3
-              , 'SibSp': 1
-              , 'Fare': 50}
+        data = {
+                "pclass":1,
+                "sex":"female",
+                "age":4.0,
+                "sibsp":1,
+                "parch":0,
+                "fare":7.25,
+                "embarked":"S",
+                "name":"Dr. D", 
+                "ticket": "Some 1234", 
+                "cabin": "KingPing",
+                "passengerid":123
+                }
 
         data_to_api = json.dumps(data)
 
-        #try:
-        send_request_deployed = requests.post(titanic_prod_app_url, data_to_api)
+        send_request_deployed = requests.request("POST", titanic_prod_app_url, headers=headers, data = data_to_api)
         print(send_request_deployed)
         api_response = str(send_request_deployed.json())
         #print(len(api_response))
         print("API response")
         print(send_request_deployed.json())
 
-        #ages = Todo.query.order_by(Todo.date_created).all()
-        return render_template('production.html', api_status=send_request_deployed, api_response=api_response)
-        #except:
-        #    return 'There was a problem accessing the prediction API'
+        return render_template('production.html', api_status=send_request_deployed, api_response=api_response, data=data)
 
 
 @app.route('/staging/', methods=['GET', 'POST'])
 def staging_api():
     if request.method == 'POST':
-        
+
+        headers = {
+        'Content-Type': 'application/json'
+        }
+
         # sample data
-        data = {'Pclass': 3
-              , 'Age': 3
-              , 'SibSp': 1
-              , 'Fare': 50}
+        data = {
+                "pclass":1,
+                "sex":"female",
+                "age":4.0,
+                "sibsp":1,
+                "parch":0,
+                "fare":7.25,
+                "embarked":"S",
+                "name":"Dr. D", 
+                "ticket": "Some 1234", 
+                "cabin": "KingPing",
+                "passengerid":123
+                }
 
         data_to_api = json.dumps(data)
 
-        #try:
-        send_request_deployed = requests.post(titanic_staging_app_url, data_to_api)
+        send_request_deployed = requests.request("POST", titanic_staging_app_url, headers=headers, data = data_to_api)
         print(send_request_deployed)
         api_response = str(send_request_deployed.json())
         #print(len(api_response))
         print("API response")
         print(send_request_deployed.json())
 
-        return render_template('staging.html', api_status=send_request_deployed, api_response=api_response)
-        #except:
-        #    return 'There was a problem accessing the prediction API'
-
-    
+        return render_template('staging.html', api_status=send_request_deployed, api_response=api_response, data=data)
+        
 @app.route('/feature_engineering/')
 def feature_engineering():
     print('Hei')
