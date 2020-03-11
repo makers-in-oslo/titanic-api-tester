@@ -1,42 +1,36 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Machine Learning Pipeline</title>
+<title>Machine Learning API Tester</title>
 {% endblock %}
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center">Machine Learning Pipeline</h1>
-
-
+  <h1 style="text-align: center">Machine Learning API Tester</h1>
 
   <center>
     <div class="form">
-        <form action="/staging/" method="POST">
-            <input type="submit" value="Staging">
-        </form>
+      <table>
+        <tr>
+          <th>Input data</th>
+          <td>
+            {% if data %}
+            <p>{{data}}</p>
+            {% endif %}
+          </td>
+        </tr>
+      </table>
+
+
+      <form action="/staging/" method="POST">
+        <input type="submit" value="Test Staging API">
+      </form>
     </div>
 
     <div class="form">
-        <form action="/production/" method="POST">
-            <input type="submit" value="Production">
-        </form>
+      <form action="/production/" method="POST">
+        <input type="submit" value="Test Production API">
+      </form>
     </div>
 
-
-
-    <!--<a href="/prediction/" >Data Prediction API</a>
-    {% if api_response|length > 1 %}
-      Status: {{api_status}}
-      Response: {{api_response}}
-    {% endif %}
-  </center>
-
-
-
-  <center>
-    <a href="/feature_engineering/" >Feature Engineering</a>
-  </center>
-  -->
-
-{% endblock %}
+    {% endblock %}
