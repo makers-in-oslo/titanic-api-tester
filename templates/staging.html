@@ -11,31 +11,31 @@
 
 
 <table>
-    <tr>
-        <th>Status</th>
-        <td>
-          {% if api_response %}
-            <p>{{api_status}}</p>
-          {% endif %}
+  <tr>
+      <th>Status</th>
+      <td>
+        {% if api_response %}
+          <p>{{api_status}}</p>
+        {% endif %}
 
-        </td>
-    </tr>
-    <tr>
-      <th>Response</th>
-      <td>
-        {% if api_response %}
-          <p>{{api_response}}</p>
-        {% endif %}
       </td>
-    </tr>
-    <tr>
-      <th>Input data</th>
-      <td>
-        {% if api_response %}
-          <p>{{data}}</p>
-        {% endif %}
-      </td>
-    </tr>
+  </tr>
+  <tr>
+    <th>Input data</th>
+    <td>
+      {% if api_response %}
+        <p>{{data}}</p>
+      {% endif %}
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      {% if api_response %}
+        <p>{{api_response}}</p>
+      {% endif %}
+    </td>
+  </tr>
 
 </table>
 </div>

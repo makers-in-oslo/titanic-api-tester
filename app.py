@@ -7,24 +7,10 @@ import requests
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-db = SQLAlchemy(app)
 
 ## Get connection details for APIs
-dataprep_api_url = os.environ['DATAPREP_API_URL'] # change to your app name
 titanic_staging_app_url = os.environ['TITANIC_STAGING_URL'] # change to your app name
 titanic_prod_app_url = os.environ['TITANIC_PROD_URL'] # change to your app name
-
-
-
-
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return '<Task %r>' % self.id
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -41,12 +27,10 @@ def production_api():
 
         # sample data
         data = {
-                "pclass":1,
-                "sex":"female",
+                "pclass":1,  "sex":"female",
                 "age":4.0,
                 "sibsp":1,
-                "parch":0,
-                "fare":7.25,
+                "parch":0, "fare":7.25,
                 "embarked":"S",
                 "name":"Dr. D", 
                 "ticket": "Some 1234", 
